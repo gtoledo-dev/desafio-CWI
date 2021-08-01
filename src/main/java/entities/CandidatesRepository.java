@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface CandidatesRepository extends JpaRepository<Candidates, Long>{
 	
-	List<Candidates> findByNameOrCpf(String name, Long cpf);
+	List<Candidates> findByNameOrId(String name, Long id);
 	
 	Candidates findEmailAnd(String email, String password);
 
