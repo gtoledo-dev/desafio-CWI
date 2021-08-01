@@ -17,15 +17,15 @@ public class Candidates {
 	private String name;
 	private Long cpf;
 	private String email;
-	private String senha;
+	private String password;
 	
-	public Candidates(Long id, String name, Long cpf, String email, String senha) {
+	public Candidates(Long id, String name, Long cpf, String email, String password) {
 
 		this.id = id;
 		this.name = name;
 		this.cpf = cpf;
 		this.email = email;
-		this.senha = senha;
+		this.password = password;
 	}
 
 	public Long getId() {
@@ -61,16 +61,16 @@ public class Candidates {
 	}
 
 	public String getSenha() {
-		return senha;
+		return password;
 	}
 
-	public void setSenha(String senha) {
-		this.senha = senha;
+	public void setSenha(String password) {
+		this.password = password;
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(cpf, email, id, name, senha);
+		return Objects.hash(cpf, email, id, name, password);
 	}
 
 	@Override
@@ -83,12 +83,12 @@ public class Candidates {
 			return false;
 		Candidates other = (Candidates) obj;
 		return Objects.equals(cpf, other.cpf) && Objects.equals(email, other.email) && Objects.equals(id, other.id)
-				&& Objects.equals(name, other.name) && Objects.equals(senha, other.senha);
+				&& Objects.equals(name, other.name) && Objects.equals(password, other.password);
 	}
 
 	@Override
 	public String toString() {
-		return "Candidates [id=" + id + ", name=" + name + ", cpf=" + cpf + ", email=" + email + ", senha=" + senha
+		return "Candidates [id=" + id + ", name=" + name + ", cpf=" + cpf + ", email=" + email + ", password=" + password
 				+ "]";
 	}
 	
