@@ -5,6 +5,8 @@ import javax.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.ResponseEntity.BodyBuilder;
+import org.springframework.http.ResponseEntity.HeadersBuilder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,12 +24,14 @@ public class CandidatesController {
 	@Autowired
 	private CandidatesService service;
 	
+	@SuppressWarnings("unchecked")
 	@GetMapping("/get")
 	public ResponseEntity<Candidates> getCandidates(
 			@RequestParam(required = false) String name,
 			@RequestHeader("autorization") String autorization){
-		return ResponseEntity
-				.ok(service.findById(id)).build();
+		Long id = null;
+		return ((HeadersBuilder<BodyBuilder>) ResponseEntity
+				.ok(service.findById(id))).build();
 	}
 	
 	@PostMapping("/save")
@@ -48,8 +52,6 @@ public class CandidatesController {
 	public ResponseEntity<Candidates> deleteCandidates(
 			@PathParam("id") Long id){
 		return ResponseEntity.ok().build();
-	}
-		
-	}
+	}		
 
 }

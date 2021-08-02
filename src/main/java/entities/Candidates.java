@@ -1,24 +1,26 @@
 package entities;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Candidates {
-	
+public class Candidates implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+
 	@Id
-	@GeneratedValue
-	@Column
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
 	private Long cpf;
 	private String email;
 	private String password;
-	
+
 	public Candidates(Long id, String name, Long cpf, String email, String password) {
 
 		this.id = id;
@@ -88,11 +90,8 @@ public class Candidates {
 
 	@Override
 	public String toString() {
-		return "Candidates [id=" + id + ", name=" + name + ", cpf=" + cpf + ", email=" + email + ", password=" + password
-				+ "]";
+		return "Candidates [id=" + id + ", name=" + name + ", cpf=" + cpf + ", email=" + email + ", password="
+				+ password + "]";
 	}
-	
-	
-	
 
 }
