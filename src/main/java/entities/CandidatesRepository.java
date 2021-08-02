@@ -8,6 +8,6 @@ public interface CandidatesRepository extends JpaRepository<Candidates, Long>{
 	
 	List<Candidates> findByNameOrId(String name, Long id);
 	
-	Candidates findEmailAnd(String email, String password);
+	Candidates findByEmailAndPassword(String email, String password);
 
 }

@@ -16,7 +16,7 @@ public class CandidatesService {
 			return candidatesRepository.findById(id);
 				
 		}
-		return null;
+		return Optional.empty();
 	}
 
 }
