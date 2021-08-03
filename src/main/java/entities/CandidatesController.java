@@ -52,6 +52,6 @@ public class CandidatesController {
 	public ResponseEntity<Candidates> deleteCandidates(
 			@PathParam("id") Long id){
 		return ResponseEntity.ok().build();
-	}		
+	}	
 
 }
